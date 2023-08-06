@@ -1,0 +1,11 @@
+@layer utilities {
+    .border-dashed-custom {
+        border-style: dashed;
+        border-width: 2px;
+        background-image: repeating-linear-gradient(to right,
+                transparent,
+                transparent 4px,
+                currentColor 4px,
+                currentColor 6px);
+    }
+}
