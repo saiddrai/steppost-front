@@ -3,7 +3,8 @@ import thumbnail from "../assets/thumbnail.png";
 import axios from "axios";
 
 const Video = ({ api }) => {
-  // const api = import.meta.env.VITE_APP_API_URL;
+  const VITE_APP_API_URL = import.meta.env.VITE_APP_API_URL;
+  const VITE_APP_URL = import.meta.env.VITE_APP_URL;
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -21,7 +22,7 @@ const Video = ({ api }) => {
 
   useEffect(() => {
     const fetchVideo = async () => {
-      axios.get(`${api}/demos/1/?populate=*`).then((res) => {
+      axios.get(`${VITE_APP_API_URL}/demos/1/?populate=*`).then((res) => {
         const data = res.data.data.attributes.video.data.attributes.url;
         setVideo(data);
       });
@@ -33,7 +34,7 @@ const Video = ({ api }) => {
     <div className="relative   p-2 lg:w-3/4 w-11/12  border-dashed border-custom rounded-3xl">
       <video
         ref={videoRef}
-        src={video}
+        src={`${VITE_APP_URL}${video}`}
         className="w-full rounded-2xl mx-auto"
         onClick={handlePlayPause}
         poster={thumbnail}

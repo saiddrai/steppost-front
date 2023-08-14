@@ -9,8 +9,6 @@ function Prices() {
     axios
       .get(`${VITE_APP_API_URL}/prices/?populate=*`)
       .then((res) => {
-        // map data items
-
         const data = res.data.data;
         setPrices(data);
       })

@@ -8,53 +8,53 @@ function Roadmap() {
 
   const [steps, setSteps] = useState(null);
 
-  const [stepsLeft, setStepsRight] = useState([
-    {
-      title: "",
-      text: "",
-    },
+  // const [stepsLeft, setStepsRight] = useState([
+  //   {
+  //     title: "",
+  //     text: "",
+  //   },
 
-    {
-      title: "",
-      text: "",
-    },
+  //   {
+  //     title: "",
+  //     text: "",
+  //   },
 
-    {
-      title: "Generation de contenu avec IA",
-      text: "Step Post vous permet d'analyser les commentaires et d'en determiner la teneur, en darja aussi !",
-    },
-    {
-      title: "",
-      text: "",
-    },
+  //   {
+  //     title: "Generation de contenu avec IA",
+  //     text: "Step Post vous permet d'analyser les commentaires et d'en determiner la teneur, en darja aussi !",
+  //   },
+  //   {
+  //     title: "",
+  //     text: "",
+  //   },
 
-    {
-      title: "Analyse de sentiment",
-      text: "Step Post vous permet d'analyser les commentaires et d'en determiner la teneur, en darja aussi !",
-    },
-  ]);
-  const [stepsRight, setStepsLeft] = useState([
-    {
-      title: "",
-      text: "",
-    },
-    {
-      title: "Integration de Canva",
-      text: "Step Post integre les fonctionnalites de Canva directement dans notre plateforme, plus besoin de naviguer entre plusieurs fenetres pour creer vos visuels !",
-    },
-    {
-      title: "",
-      text: "",
-    },
-    {
-      title: "Social listening",
-      text: "",
-    },
-    {
-      title: "",
-      text: "",
-    },
-  ]);
+  //   {
+  //     title: "Analyse de sentiment",
+  //     text: "Step Post vous permet d'analyser les commentaires et d'en determiner la teneur, en darja aussi !",
+  //   },
+  // ]);
+  // const [stepsRight, setStepsLeft] = useState([
+  //   {
+  //     title: "",
+  //     text: "",
+  //   },
+  //   {
+  //     title: "Integration de Canva",
+  //     text: "Step Post integre les fonctionnalites de Canva directement dans notre plateforme, plus besoin de naviguer entre plusieurs fenetres pour creer vos visuels !",
+  //   },
+  //   {
+  //     title: "",
+  //     text: "",
+  //   },
+  //   {
+  //     title: "Social listening",
+  //     text: "",
+  //   },
+  //   {
+  //     title: "",
+  //     text: "",
+  //   },
+  // ]);
   // fetch steps from api
 
   useEffect(() => {
@@ -62,7 +62,6 @@ function Roadmap() {
       .get(`${VITE_APP_API_URL}/roadmaps/?populate=*`)
       .then((res) => {
         setSteps(res.data.data[0].attributes.paragraphs.data);
-        // setStepsLeft(res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -88,7 +87,7 @@ function Roadmap() {
                 return (
                   <Step
                     title={item.attributes.title}
-                    text={item.attributes.description}
+                    description={item.attributes.description}
                   />
                 );
               } else {

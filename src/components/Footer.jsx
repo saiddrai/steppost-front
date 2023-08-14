@@ -7,6 +7,7 @@ import itihadlogo from "../assets/itihadlogo.svg";
 import logo from "../assets/logoFull.svg";
 import axios from "axios";
 function Footer() {
+  const VITE_APP_API_URL = import.meta.env.VITE_APP_API_URL;
   const [paragraphs, setParagraphs] = React.useState([
     {
       id: 1,
@@ -27,7 +28,7 @@ function Footer() {
 
   useEffect(() => {
     axios
-      .get("https://jsonplaceholder.typicode.com/posts")
+      .get(`${VITE_APP_API_URL}/footers/?populate=*`)
       .then((res) => {
         setParagraphs(res.data.data);
       })

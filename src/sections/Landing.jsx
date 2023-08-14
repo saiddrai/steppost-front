@@ -3,32 +3,30 @@ import React, { useState } from "react";
 import { ChevronDownIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
 // import dotsCycle and fillCircle svgs
 import dots from "../assets/dots.png";
-import fillCircle from "../assets/fillCircle.svg";
+import fillCircle from "../assets/fillLight.png";
 import axios from "axios";
 
 function Landing() {
   const [post, setPost] = useState({
     attributes: {
-      title:
-        "GÉREZ VOS RESEAUX SOCIAUX COMME UN PRO AVEC STEPPOSTGÉREZ VOS RESEAUX SOCIAUX COMME UN PRO AVEC STEPPOST",
+      title: "GÉREZ VOS RESEAUX SOCIAUX COMME UN PRO AVEC STEPPOST",
       description:
         "La plateforme de gestion de médias sociaux qui vous permet de créer, planifier et analyser vos publications en quelques clics.",
     },
   });
 
-  const REACT_APP_API_URL = import.meta.env.VITE_REACT_APP_API_URL;
+  const VITE_APP_API_URL = import.meta.env.VITE_APP_API_URL;
 
   React.useEffect(() => {
     const fetchPosts = async () => {
       axios
-        .get(`${"http://localhost:1337"}/api/paragraphs/1`)
+        .get(`${VITE_APP_API_URL}/paragraphs/1`)
         .then((res) => {
           const data = res.data.data;
           setPost(data);
         })
         .catch((err) => {
           console.log(err);
-          setError(true);
         });
     };
     fetchPosts();
@@ -40,7 +38,7 @@ function Landing() {
     >
       <div className="z-0 lg:pt-20 flex lg:flex-row lg:p-10 w-full h-screen">
         <div className="flex flex-col text-left justify-start pt-24 items-start lg:pr-20 w-screen lg:w-1/2">
-          <h1 className="text-3xl pb-2 lg:pb-6  font-bold  text-white">
+          <h1 className="text-4xl lg:text-5xl pb-2 lg:pb-6  font-bold  text-white">
             {post && post.attributes.title}{" "}
           </h1>
           <p className="text-lg font-body leading-tight pb-14 shadow-sm text-white">
@@ -52,12 +50,10 @@ function Landing() {
           <div className=" absolute flex flex-col justify-center items-center w-2/3 ">
             <img
               src={dots}
-              alt="dots"
               className=" left-0 absolute top-40 w-72 lg:96 lg:top-60 z-20"
             />
             <img
               src={fillCircle}
-              alt="fill"
               className="w-44 lg:w-96 absolute left-[40%] top-96 opacity-20"
             />
           </div>

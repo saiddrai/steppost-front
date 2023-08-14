@@ -52,60 +52,62 @@ function Pourquoi() {
   }, []);
 
   return (
-    <div className="py-10 px-4 lg:px-10">
-      <h1 className="font-title font-bold text-4xl lg:text-5xl  lg:w-96 lg:text-right  ">
-        POURQUOI CHOISIR <span className="text-purple">STEPPOST?</span>
-      </h1>
-      <div
-        className="flex flex-col justify-center items-center
-      lg:grid  grid-cols-2 lg:grid-cols-3 mt-10 w-5/6 mx-auto space-y-8"
-      >
-        <div className="flex row-span-2 justify-center items-center">
-          <div
-            className="p-6  py-10 bg-sandver lg:translate-y-4 bg-cover rounded-2xl
+    <>
+      <div className="py-10 px-4 lg:px-10">
+        <h1 className="font-title font-bold text-4xl lg:text-5xl  lg:w-96 lg:text-right  ">
+          POURQUOI CHOISIR <span className="text-purple">STEPPOST?</span>
+        </h1>
+        <div
+          className="flex flex-col justify-center items-center
+        lg:grid  grid-cols-2 lg:grid-cols-3 mt-10 w-5/6 mx-auto space-y-8"
+        >
+          <div className="flex row-span-2 justify-center items-center">
+            <div
+              className="p-6  py-10 bg-sandver lg:translate-y-4 bg-cover rounded-2xl
           h-[32rem]  w-64 "
-          >
-            <h1 className="text-4xl font-title font-bold text-white mx- mb-10">
-              {paragraphs && paragraphs[0].attributes.title}{" "}
-            </h1>
-            <p className="text-white font-body font-semibold text-lg">
-              {paragraphs && paragraphs[0].attributes.description}
-            </p>
+            >
+              <h1 className="text-4xl font-title font-bold text-white mx- mb-10">
+                {paragraphs && paragraphs[0].attributes.title}{" "}
+              </h1>
+              <p className="text-white font-body font-semibold text-lg">
+                {paragraphs && paragraphs[0].attributes.description}
+              </p>
+            </div>
+          </div>
+          <div className="flex justify-center items-start">
+            <Card
+              className="flex justify-center items-center"
+              title={`${paragraphs && paragraphs[1].attributes.title}`}
+              text={`${paragraphs && paragraphs[1].attributes.description}`}
+              textColor={"purple"}
+            />
+          </div>
+          <div className="flex justify-center items-center">
+            <Card
+              title={`${paragraphs && paragraphs[2].attributes.title}`}
+              text={`${paragraphs && paragraphs[2].attributes.description}`}
+              textColor={"purple"}
+            />
+          </div>
+          <div className="flex justify-center items-center">
+            <Card
+              title={`${paragraphs && paragraphs[3].attributes.title}`}
+              text={`${paragraphs && paragraphs[3].attributes.description}`}
+              textColor={"white"}
+              bg={"bg-cup"}
+            />
+          </div>
+          <div className="flex justify-center items-center">
+            <Card
+              title={`${paragraphs && paragraphs[4].attributes.title}`}
+              text={`${paragraphs && paragraphs[4].attributes.description}`}
+              textColor={"purple"}
+            />
           </div>
         </div>
-        <div className="flex justify-center items-start">
-          <Card
-            className="flex justify-center items-center"
-            title={`${paragraphs && paragraphs[1].attributes.title}`}
-            text={`${paragraphs && paragraphs[1].attributes.description}`}
-            textColor={"purple"}
-          />
-        </div>
-        <div className="flex justify-center items-center">
-          <Card
-            title={`${paragraphs && paragraphs[2].attributes.title}`}
-            text={`${paragraphs && paragraphs[2].attributes.description}`}
-            textColor={"purple"}
-          />
-        </div>
-        <div className="flex justify-center items-center">
-          <Card
-            title={`${paragraphs && paragraphs[3].attributes.title}`}
-            text={`${paragraphs && paragraphs[3].attributes.description}`}
-            textColor={"white"}
-            bg={"bg-cup"}
-          />
-        </div>
-        <div className="flex justify-center items-center">
-          <Card
-            title={`${paragraphs && paragraphs[4].attributes.title}`}
-            text={`${paragraphs && paragraphs[4].attributes.description}`}
-            textColor={"purple"}
-          />
-        </div>
+        <div className="grid grid-cols-2"></div>
       </div>
-      <div className="grid grid-cols-2"></div>
-    </div>
+    </>
   );
 }
 

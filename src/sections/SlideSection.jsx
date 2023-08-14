@@ -11,6 +11,7 @@ import axios from "axios";
 
 const SlideSection = () => {
   const VITE_APP_API_URL = import.meta.env.VITE_APP_API_URL;
+  const VITE_APP_URL = import.meta.env.VITE_APP_URL;
   const [slides, setSlides] = useState([
     {
       id: 1,
@@ -84,24 +85,26 @@ const SlideSection = () => {
 
   const [slidesContent, setSlidesContent] = useState(null);
 
-  const renderSlides = () => {
-    slidesContent.map((slide) => {
+  const renderSlides = (content) => {
+    const newContent = content.map((slide) => {
       return {
         id: slide.id,
         component: (
           <Slide
             title={slide.attributes.paragraph.data.attributes.title}
             description={slide.attributes.paragraph.data.attributes.description}
-            image1={slide.attributes.image1.data.attributes.url}
-            image2={slide.attributes.image2.data.attributes.url}
+            image1={`${VITE_APP_URL}${slide.attributes.image1.data.attributes.url}`}
+            image2={`${VITE_APP_URL}${slide.attributes.image2.data.attributes.url}`}
             svg={creation}
             size={[50, 10]}
             position={[20, 20, 40, 20, 10, 60]}
-            id={1}
+            id={slide.id}
           />
         ),
       };
     });
+    console.log(newContent);
+    setSlidesContent(newContent);
   };
 
   useEffect(() => {
@@ -110,7 +113,8 @@ const SlideSection = () => {
         .get(`${VITE_APP_API_URL}/slides/?populate=*`)
         .then((res) => {
           const data = res.data.data;
-          setSlidesContent(data);
+          renderSlides(data);
+          console.log(res.data.data);
         })
         .catch((err) => {
           console.log(err);
@@ -163,7 +167,8 @@ const SlideSection = () => {
           isTransitioning ? "opacity-0" : "opacity-100"
         }`}
       >
-        {slides[currentSlide].component}
+        {slidesContent && slidesContent[currentSlide].component}
+        {!slidesContent && slides[currentSlide].component}
       </div>
 
       <div className="transform absolute translate-y-[-1rem] w-20 left-[50%] translate-x-[-2.5rem] flex justify-center transition-all duration-300 ">
