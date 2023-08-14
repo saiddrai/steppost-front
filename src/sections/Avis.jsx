@@ -4,6 +4,7 @@ import axios from "axios";
 
 function Avis() {
   // les avis des clients
+  const VITE_APP_API_URL = import.meta.env.VITE_APP_API_URL;
 
   const [avisOffline, setAvisOffline] = useState([
     {
@@ -43,7 +44,7 @@ function Avis() {
   // fetch les avis
   useEffect(() => {
     axios
-      .get("http://localhost:1337/api/avis/?populate=*")
+      .get(`${VITE_APP_API_URL}/avis/?populate=*`)
       .then((res) => {
         const data = res.data.data;
 
