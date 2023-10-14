@@ -8,6 +8,11 @@ import axios from "axios";
 import { home } from "../content";
 
 function Landing() {
+  function handleSubmit() {
+    const googleFormUrl =
+      "https://docs.google.com/forms/d/e/1FAIpQLScQODgwvZLkWExtp0zP6rODxs0YV0LibGc7wbxALHjklR-iWw/viewform?usp=sf_link";
+    window.open(googleFormUrl, "_blank");
+  }
   return (
     <div
       className={`h-full lg:h-screen px-4 flex flex-row justify-center items-center font-title bg-slate-200 bg-homeMobile lg:bg-home bg-cover  text-xl`}
@@ -32,12 +37,12 @@ function Landing() {
             />
           </div>
           <div className="flex z-30 flex-row justify-center items-center">
-            <a
-              className="bg-white bg-opacity-20 font-extralight hover:bg-opacity-50 cursor-pointer text-white  py-2 px-6 mx-2 rounded-full"
-              href="#avantages"
+            <button
+              onClick={() => handleSubmit()}
+              className="bg-white bg-opacity-80 font-extralight hover:bg-opacity-50 cursor-pointer text-purple text-2xl  py-2 px-6 mx-2 rounded-full"
             >
-              Learn More
-            </a>
+              Register for Beta{" "}
+            </button>
             <a
               href="#avantages"
               className="bg-transparent pointer-cursor border-dashed-custom   hover:bg-opacity-50 hover-bg-white z-50 text-white font-bold py-4 px-4 rounded-full"

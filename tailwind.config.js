@@ -30,9 +30,9 @@ export default {
       },
       fontFamily: {
         // define bebas neue
-        title: ["Bebas Neue", "sans-serif"],
+        title: ["Bebastitle", "sans-serif"],
         // cairo for body
-        body: ["Cairo", "sans-serif"],
+        body: ["Cairobody", "sans-serif"],
       },
     },
     plugins: [],
