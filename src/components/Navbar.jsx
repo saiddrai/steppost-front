@@ -85,17 +85,17 @@ function Navbar() {
             <div className="flex flex-col justify-start items-center">
               <a className="smooth-scroll" href="#avantages">
                 <button className="text-white text-xl font-bold hover:text-gray-400 py-4">
-                  Avantages
+                  Benefits
                 </button>
               </a>
               <a className="smooth-scroll" href="#fonctionnalites">
                 <button className="text-white text-xl font-bold hover:text-gray-400 my-4">
-                  Fonctionnalités
+                  Features
                 </button>
               </a>
               <a className="smooth-scroll" href="#avis">
                 <button className="text-white text-xl font-bold hover:text-gray-400 my-4">
-                  Avis
+                  Feedback
                 </button>
               </a>
               <a className="smooth-scroll" href="#prix">
