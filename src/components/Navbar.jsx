@@ -39,24 +39,24 @@ function Navbar() {
           </a>
           <a href="#avantages">
             <button className="text-white text-xl font-bold hover:text-gray-400">
-              Avantages
+              Benefits
             </button>
           </a>
           <a href="#fonctionnalites">
             <button className="text-white text-xl font-bold hover:text-gray-400 ml-10">
-              Fonctionnalités
+              Features
             </button>
           </a>
           <a href="#avis">
             <button className="text-white text-xl font-bold hover:text-gray-400 ml-10">
-              Avis
+              Feedback
             </button>
           </a>
-          <a href="#prix">
+          {/* <a href="#prix">
             <button className="text-white text-xl font-bold hover:text-gray-400 ml-10">
               Prix
             </button>
-          </a>
+          </a> */}
           <a href="#contact">
             <button className=" text-white text-xl font-bold hover:text-gray-400 ml-10">
               Contact

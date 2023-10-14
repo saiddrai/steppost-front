@@ -13,7 +13,7 @@ export default {
 
       backgroundImage: {
         "gradient-name": "linear-gradient(to right, #B91D73, #F953C6)",
-        home: "url('/src/assets/homeoverlay.jpg')",
+        home: "url('/src/assets/homeoverlay.jpeg')",
         homeMobile: "url('/src/assets/homeoverlaymobile.png')",
         overlay: "url('/src/assets/overlay.png')",
         sandver: "url('/src/assets/sandclock.png')",

@@ -5,33 +5,9 @@ import { ChevronDownIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
 import dots from "../assets/dots.png";
 import fillCircle from "../assets/fillLight.png";
 import axios from "axios";
+import { home } from "../content";
 
 function Landing() {
-  const [post, setPost] = useState({
-    attributes: {
-      title: "GÉREZ VOS RESEAUX SOCIAUX COMME UN PRO AVEC STEPPOST",
-      description:
-        "La plateforme de gestion de médias sociaux qui vous permet de créer, planifier et analyser vos publications en quelques clics.",
-    },
-  });
-
-  const VITE_APP_API_URL = import.meta.env.VITE_APP_API_URL;
-
-  React.useEffect(() => {
-    const fetchPosts = async () => {
-      axios
-        .get(`${VITE_APP_API_URL}/paragraphs/1`)
-        .then((res) => {
-          const data = res.data.data;
-          setPost(data);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    };
-    fetchPosts();
-  }, []);
-
   return (
     <div
       className={`h-full lg:h-screen px-4 flex flex-row justify-center items-center font-title bg-slate-200 bg-homeMobile lg:bg-home bg-cover  text-xl`}
@@ -39,14 +15,12 @@ function Landing() {
       <div className="z-0 lg:pt-20 flex lg:flex-row lg:p-10 w-full h-screen">
         <div className="flex flex-col text-left justify-start pt-24 items-start lg:pr-20 w-screen lg:w-1/2">
           <h1 className="text-4xl lg:text-5xl pb-2 lg:pb-6  font-bold  text-white">
-            {post && post.attributes.title}{" "}
+            {home.title}{" "}
           </h1>
           <p className="text-lg font-body leading-tight pb-14 shadow-sm text-white">
-            {post && post.attributes.description}
+            {home.description}
           </p>
-          <p className="text-lg pb-4 text-white">
-            Commencez votre aventure dès maintenant !{" "}
-          </p>
+          <p className="text-lg pb-4 text-white">{home.subtitle}</p>
           <div className=" absolute flex flex-col justify-center items-center w-2/3 ">
             <img
               src={dots}
@@ -62,7 +36,7 @@ function Landing() {
               className="bg-white bg-opacity-20 font-extralight hover:bg-opacity-50 cursor-pointer text-white  py-2 px-6 mx-2 rounded-full"
               href="#avantages"
             >
-              En apprendre plus
+              Learn More
             </a>
             <a
               href="#avantages"

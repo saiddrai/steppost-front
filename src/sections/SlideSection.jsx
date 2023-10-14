@@ -8,19 +8,16 @@ import planning from "../assets/planning.svg";
 import searching from "../assets/searching.svg";
 import deal from "../assets/deal.svg";
 import axios from "axios";
+import { slides } from "../content";
 
+// import images from content.slides in an array of objects that contains two images
 const SlideSection = () => {
-  const VITE_APP_API_URL = import.meta.env.VITE_APP_API_URL;
-  const VITE_APP_URL = import.meta.env.VITE_APP_URL;
-  const [slides, setSlides] = useState([
+  const [slidesContent, setSlidesContent] = useState([
     {
       id: 1,
       component: (
         <Slide
-          title="Création de contenu"
-          description={
-            "Utilisez notre éditeur intuitif Créez des publications ersonnalisées Choisissez parmi notre bibliothèque de modèles ou créez les vôtres"
-          }
+          paragraph={slides.slides[0]}
           image1={screenshot}
           image2={screenshot}
           svg={creation}
@@ -34,10 +31,7 @@ const SlideSection = () => {
       id: 2,
       component: (
         <Slide
-          title="Planification de contenu"
-          description={
-            "Planifiez vos publications à l'avance Automatisez leur diffusion Publiez aux moments les plus efficaces pour toucher votre audience"
-          }
+          paragraph={slides.slides[1]}
           image1={screenshot}
           image2={screenshot}
           svg={planning}
@@ -51,10 +45,7 @@ const SlideSection = () => {
       id: 3,
       component: (
         <Slide
-          title="Analyse de contenu"
-          description={
-            "Analysez les performances de vos publications et de vos campagnes Suivez vos indicateurs clés Obtenez des rapports détaillés et des insights actionnables"
-          }
+          paragraph={slides.slides[2]}
           image1={screenshot}
           image2={screenshot}
           svg={searching}
@@ -68,10 +59,7 @@ const SlideSection = () => {
       id: 4,
       component: (
         <Slide
-          title="collaboration"
-          description={
-            "Collaborez facilement avec votre équipe et vos clients Partagez vos projets, vos calendriers et vos feedbacks Assignez des tâches, approuvez des publications et communiquez en temps réel"
-          }
+          paragraph={slides.slides[3]}
           image1={screenshot}
           image2={screenshot}
           svg={deal}
@@ -83,46 +71,6 @@ const SlideSection = () => {
     },
   ]);
 
-  const [slidesContent, setSlidesContent] = useState(null);
-
-  const renderSlides = (content) => {
-    const newContent = content.map((slide) => {
-      return {
-        id: slide.id,
-        component: (
-          <Slide
-            title={slide.attributes.paragraph.data.attributes.title}
-            description={slide.attributes.paragraph.data.attributes.description}
-            image1={`${VITE_APP_URL}${slide.attributes.image1.data.attributes.url}`}
-            image2={`${VITE_APP_URL}${slide.attributes.image2.data.attributes.url}`}
-            svg={creation}
-            size={[50, 10]}
-            position={[20, 20, 40, 20, 10, 60]}
-            id={slide.id}
-          />
-        ),
-      };
-    });
-    console.log(newContent);
-    setSlidesContent(newContent);
-  };
-
-  useEffect(() => {
-    const fetchSlides = async () => {
-      axios
-        .get(`${VITE_APP_API_URL}/slides/?populate=*`)
-        .then((res) => {
-          const data = res.data.data;
-          renderSlides(data);
-          console.log(res.data.data);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    };
-    fetchSlides();
-  }, []);
-
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
@@ -131,7 +79,7 @@ const SlideSection = () => {
       setIsTransitioning(true);
       setTimeout(() => {
         setCurrentSlide((prevSlide) =>
-          prevSlide === slides.length - 1 ? 0 : prevSlide + 1
+          prevSlide === slidesContent.length - 1 ? 0 : prevSlide + 1
         );
         setIsTransitioning(false);
       }, 500); // Adjust the duration of the transition here
@@ -143,7 +91,7 @@ const SlideSection = () => {
       setIsTransitioning(true);
       setTimeout(() => {
         setCurrentSlide((prevSlide) =>
-          prevSlide === 0 ? slides.length - 1 : prevSlide - 1
+          prevSlide === 0 ? slidesContent.length - 1 : prevSlide - 1
         );
         setIsTransitioning(false);
       }, 500); // Adjust the duration of the transition here
@@ -167,13 +115,12 @@ const SlideSection = () => {
           isTransitioning ? "opacity-0" : "opacity-100"
         }`}
       >
-        {slidesContent && slidesContent[currentSlide].component}
-        {!slidesContent && slides[currentSlide].component}
+        {slidesContent[currentSlide].component}
       </div>
 
       <div className="transform absolute translate-y-[-1rem] w-20 left-[50%] translate-x-[-2.5rem] flex justify-center transition-all duration-300 ">
         <div className="flex  space-x-2">
-          {slides.map((slide, index) => (
+          {slidesContent.map((slide, index) => (
             <button
               key={slide.id}
               className={`h-2 w-2 rounded-full ${

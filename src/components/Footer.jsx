@@ -7,35 +7,23 @@ import itihadlogo from "../assets/itihadlogo.svg";
 import logo from "../assets/logoFull.svg";
 import axios from "axios";
 function Footer() {
-  const VITE_APP_API_URL = import.meta.env.VITE_APP_API_URL;
   const [paragraphs, setParagraphs] = React.useState([
     {
       id: 1,
       title: "principal",
-      text: "Acceuil Pourquoi nous choisir? Nos fonctionnalités Démo Avis clients Roadmap",
+      text: "Home Why choose us? Our features Demo Customer reviews Roadmap",
     },
     {
       id: 2,
       title: "extra",
-      text: "Politique de confidentialité Conditions d'utilisation Cookies Mentions légales 2023 Step Post. Tous droits réservés.",
+      text: "Privacy policy Terms of use Cookies Legal 2023 Step Post. All rights reserved.",
     },
     {
       id: 3,
-      title: "nos reseaux",
+      title: "our socials",
       text: "",
     },
   ]);
-
-  useEffect(() => {
-    axios
-      .get(`${VITE_APP_API_URL}/footers/?populate=*`)
-      .then((res) => {
-        setParagraphs(res.data.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
 
   return (
     <div className="h-fit  pt-64 lg:h-[350px] w-screen bg-footerbg bg-cover bg-[-10px] px-8 space-y-8 lg:pt-20 flex flex-col lg:flex-row justify-center items-start lg:items-center pb-12">
@@ -48,29 +36,29 @@ function Footer() {
           {paragraphs && paragraphs[0].title}
         </h1>
         <p className="grid grid-cols-2 lg:flex flex-col font-body font-thin underline text-white">
-          <a href="#acceuil"> Acceuil </a>
-          <a href="#avantages"> Pourquoi nous choisir?</a>
-          <a> Nos fonctionnalités </a>
-          <a> Démo</a>
-          <a> Avis clients </a>
+          <a href="#acceuil"> Home </a>
+          <a href="#avantages"> Why choose us ?</a>
+          <a> Our Features </a>
+          <a> Demo</a>
+          <a> Clients Feedback </a>
           <a> Roadmap</a>
         </p>
       </div>
       <div className="lg:w-1/4 flex flex-col  justify-end h-full  items-start">
         <h1 className="font-title font-bold text-xl text-black">extra</h1>
         <p className="font-body text-white ">
-          Politique de confidentialité Conditions d'utilisation Cookies
+          Privacy policy Terms of use Cookies{" "}
         </p>
         <h1 className="font-title mt-4 font-bold text-xl text-black">
-          Mentions légales
+          Legal mentions{" "}
         </h1>
         <p className="font-body text-white text-center">
-          2023 Step Post. Tous droits réservés.
+          2023 Stepopst. All rights reserved.{" "}
         </p>
       </div>
       <div className="lg:w-1/4 flex flex-col  justify-end h-full  items-start">
         <h1 className="font-title mb-2 font-bold text-xl text-black">
-          nos reseaux
+          our socials
         </h1>
         <div className="flex flex-row space-x-4">
           <a href="https://facebook.com" target="_blank">
@@ -87,7 +75,7 @@ function Footer() {
           </a>
         </div>
         <h1 className="font-title mt-4 font-bold text-xl text-black">
-          partenaires
+          partners
         </h1>
         <p className="font-body text-white text-center mB-2">@itihad.group</p>
         <img src={itihadlogo} alt="itihadlogo" className="w-24" />
