@@ -1,13 +1,13 @@
 @font-face {
     font-family: "Bebastitle";
-    src: url("../public/BebasNeue-Regular.ttf") format("woff");
+    src: url("/BebasNeue-Regular.ttf") format("woff");
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: "Cairobody";
-    src: url("../public/Cairo-Regular.ttf") format("woff");
+    src: url("/Cairo-Regular.ttf") format("woff");
     font-weight: normal;
     font-style: normal;
 }

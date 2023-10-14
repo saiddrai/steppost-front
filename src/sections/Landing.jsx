@@ -39,7 +39,7 @@ function Landing() {
           <div className="flex z-30 flex-row justify-center items-center">
             <button
               onClick={() => handleSubmit()}
-              className="bg-white bg-opacity-80 font-extralight hover:bg-opacity-50 cursor-pointer text-purple text-2xl  py-2 px-6 mx-2 rounded-full"
+              className="bg-white bg-opacity-80 font-extralight hover:bg-opacity-50 cursor-pointer text-purple text-2xl  py-2 px-6  rounded-full"
             >
               Register for Beta{" "}
             </button>
