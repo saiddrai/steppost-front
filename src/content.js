@@ -1,3 +1,9 @@
+export const home = {
+  title: "MANAGE YOUR SOCIAL NETWORKS LIKE A PRO WITH STEPPOST",
+  description:
+    "The social media management platform that lets you create, plan and analyze your publications in just a few clicks.",
+  subtitle: "Start your adventure now!",
+};
 export const avis = {
   // send it
   list: [
@@ -88,13 +94,6 @@ export const roadmapList = {
   ],
 };
 
-export const home = {
-  title: "MANAGE YOUR SOCIAL NETWORKS LIKE A PRO WITH STEPPOST",
-  description:
-    "The social media management platform that lets you create, plan and analyze your publications in just a few clicks.",
-  subtitle: "Start your adventure now!",
-};
-
 export const pourquoi = {
   list: [
     {
@@ -119,9 +118,6 @@ export const pourquoi = {
     },
   ],
 };
-
-// import { image1 } from "./assets/screenshot2.png";
-// import { image2 } from "./assets/screenshot.png";
 
 export const slides = {
   slides: [
@@ -166,3 +162,13 @@ export const videoData = {
   url: "",
   thumbnail: thumbnail,
 };
+const contentEn = {
+  home,
+  avis,
+  prices,
+  roadmapList,
+  pourquoi,
+  slides,
+  videoData,
+};
+export default contentEn;

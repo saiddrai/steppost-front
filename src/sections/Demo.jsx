@@ -4,7 +4,7 @@ import fillCircle from "../assets/fillLight.png";
 import decouvrir from "../assets/decouvrir.png";
 import decouvrirHor from "../assets/decouvrirHor.png";
 
-function Demo() {
+function Demo({ videoData }) {
   // fetch from "itihad.me/api/video"
 
   return (
@@ -15,7 +15,7 @@ function Demo() {
       </h1>
       <div className=" flex flex-col lg:flex-row justify-center items-center ">
         <div className="lg:w-12 lg:ml-auto lg:mr-"></div>
-        <Video />
+        <Video videoData={videoData} />
 
         <img
           src={decouvrirHor}

@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { videoData } from "../content";
-const Video = () => {
+const Video = ({ videoData }) => {
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
 

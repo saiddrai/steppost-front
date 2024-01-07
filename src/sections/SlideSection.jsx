@@ -8,10 +8,9 @@ import planning from "../assets/planning.svg";
 import searching from "../assets/searching.svg";
 import deal from "../assets/deal.svg";
 import axios from "axios";
-import { slides } from "../content";
 
 // import images from content.slides in an array of objects that contains two images
-const SlideSection = () => {
+const SlideSection = ({ slides }) => {
   const [slidesContent, setSlidesContent] = useState([
     {
       id: 1,

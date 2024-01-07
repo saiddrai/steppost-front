@@ -1,31 +1,29 @@
 import React, { useEffect } from "react";
 import Landing from "./sections/Landing";
 import Navbar from "./components/Navbar";
-import axios from "axios";
 import SlideSection from "./sections/SlideSection";
 import Pourquoi from "./sections/Pourquoi";
 import Demo from "./sections/Demo";
 import Avis from "./sections/Avis";
 import Roadmap from "./sections/Roadmap";
 import Footer from "./components/Footer";
-import Prices from "./sections/Prices";
 
-function LandingPage() {
+function LandingPage({ content }) {
   const api = import.meta.env.VITE_APP_API_URL;
-
+  console.log(content);
   return (
     <div className=" overflow-hidden  ">
       <Navbar />
       <section id="acceuil">
-        <Landing />
+        <Landing home={content.home} />
       </section>
       <section id="avantages">
-        <Pourquoi />
+        <Pourquoi pourquoi={content.pourquoi} />
       </section>
       <section id="fonctionnalites">
-        <SlideSection />
+        <SlideSection slides={content.slides} />
       </section>
-      <Demo />
+      <Demo videoData={content.videoData} />
       <section id="avis">
         <Avis />
       </section>

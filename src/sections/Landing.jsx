@@ -1,13 +1,9 @@
 import React, { useState } from "react";
-// import { ChevronDownIcon } from "@heroicons/react/solid";
 import { ChevronDownIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
-// import dotsCycle and fillCircle svgs
 import dots from "../assets/dots.png";
 import fillCircle from "../assets/fillLight.png";
-import axios from "axios";
-import { home } from "../content";
 
-function Landing() {
+function Landing({ home }) {
   function handleSubmit() {
     const googleFormUrl =
       "https://docs.google.com/forms/d/e/1FAIpQLScQODgwvZLkWExtp0zP6rODxs0YV0LibGc7wbxALHjklR-iWw/viewform?usp=sf_link";

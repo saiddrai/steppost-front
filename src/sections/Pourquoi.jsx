@@ -1,45 +1,5 @@
-import React, { useState } from "react";
 import Card from "../components/Card";
-import { pourquoi } from "../content";
-function Pourquoi() {
-  // const [paragraphs, setParagraphs] = useState([
-  //   {
-  //     id: 1,
-  //     attributes: {
-  //       title: pourquoi.list[0].title,
-  //       description: pourquoi.list[0].text,
-  //     },
-  //   },
-  //   {
-  //     id: 2,
-  //     attributes: {
-  //       title: pourquoi.list[1].title,
-  //       description: pourquoi.list[1].text,
-  //     },
-  //   },
-  //   {
-  //     id: 3,
-  //     attributes: {
-  //       title: pourquoi.list[2].title,
-  //       description: pourquoi.list[2].text,
-  //     },
-  //   },
-  //   {
-  //     id: 4,
-  //     attributes: {
-  //       title: pourquoi.list[3].title,
-  //       description: pourquoi.list[3].text,
-  //     },
-  //   },
-  //   {
-  //     id: 5,
-  //     attributes: {
-  //       title: pourquoi.list[4].title,
-  //       description: pourquoi.list[4].text,
-  //     },
-  //   },
-  // ]);
-
+function Pourquoi({ pourquoi }) {
   return (
     <>
       <div className="py-10 px-4 lg:px-10">

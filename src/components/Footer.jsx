@@ -53,7 +53,7 @@ function Footer() {
           Legal mentions{" "}
         </h1>
         <p className="font-body text-white text-center">
-          2023 Stepopst. All rights reserved.{" "}
+          2024 SARL Bastion Group.{" "}
         </p>
       </div>
       <div className="lg:w-1/4 flex flex-col  justify-end h-full  items-start">
