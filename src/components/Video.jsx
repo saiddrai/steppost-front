@@ -1,5 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
-const Video = ({ videoData }) => {
+import React, { useRef, useState } from "react";
+import thumbnail from "../assets/thumbnail.png";
+
+const Video = () => {
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -17,10 +19,10 @@ const Video = ({ videoData }) => {
     <div className="relative   p-2 lg:w-3/4 w-11/12  border-dashed border-custom rounded-3xl">
       <video
         ref={videoRef}
-        src={videoData.url}
+        src="../../public/video.mp4"
         className="w-full rounded-2xl mx-auto"
         onClick={handlePlayPause}
-        poster={videoData.thumbnail}
+        poster={thumbnail}
       >
         Your browser does not support the video tag.
       </video>

@@ -8,32 +8,32 @@ import Avis from "./sections/Avis";
 import Roadmap from "./sections/Roadmap";
 import Footer from "./components/Footer";
 
-function LandingPage({ content }) {
-  const api = import.meta.env.VITE_APP_API_URL;
-  console.log(content);
+function LandingPage({ content, language }) {
   return (
     <div className=" overflow-hidden  ">
-      <Navbar />
+      <Navbar language={language} />
       <section id="acceuil">
-        <Landing home={content.home} />
+        <Landing home={content.home} language={language} />
       </section>
       <section id="avantages">
-        <Pourquoi pourquoi={content.pourquoi} />
+        <Pourquoi pourquoi={content.pourquoi} language={language} />
       </section>
       <section id="fonctionnalites">
-        <SlideSection slides={content.slides} />
+        <SlideSection slides={content.slides} language={language} />
       </section>
-      <Demo videoData={content.videoData} />
+      <section id="demo">
+        <Demo videoData={content.videoData} language={language} />
+      </section>
       <section id="avis">
-        <Avis />
+        <Avis content={content.avis} language={language} />
       </section>
       <section id="roadmap">
-        <Roadmap />
+        <Roadmap roadmapList={content.roadmapList} language={language} />
       </section>
       {/* <section id="prices">
         <Prices />
       </section> */}
-      <Footer />
+      <Footer language={language} />
     </div>
   );
 }

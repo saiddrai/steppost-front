@@ -3,7 +3,7 @@ import { ChevronDownIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
 import dots from "../assets/dots.png";
 import fillCircle from "../assets/fillLight.png";
 
-function Landing({ home }) {
+function Landing({ home, language }) {
   function handleSubmit() {
     const googleFormUrl =
       "https://docs.google.com/forms/d/e/1FAIpQLScQODgwvZLkWExtp0zP6rODxs0YV0LibGc7wbxALHjklR-iWw/viewform?usp=sf_link";
@@ -37,7 +37,7 @@ function Landing({ home }) {
               onClick={() => handleSubmit()}
               className="bg-white bg-opacity-80 font-extralight hover:bg-opacity-50 cursor-pointer text-purple text-2xl  py-2 px-6  rounded-full"
             >
-              Register for Beta{" "}
+              {language === "fr" ? "S'inscrire à Beta" : "Register for Beta"}
             </button>
             <a
               href="#avantages"

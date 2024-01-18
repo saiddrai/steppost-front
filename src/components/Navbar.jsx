@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import logo from "../assets/logo.png";
 import { Bars3Icon } from "@heroicons/react/24/solid";
 
-function Navbar() {
+function Navbar({ language }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -39,27 +39,22 @@ function Navbar() {
           </a>
           <a href="#avantages">
             <button className="text-white text-xl font-bold hover:text-gray-400">
-              Benefits
+              {language === "fr" ? "Avantages" : "Advantages"}
             </button>
           </a>
           <a href="#fonctionnalites">
             <button className="text-white text-xl font-bold hover:text-gray-400 ml-10">
-              Features
+              {language === "fr" ? "Fonctionnalités" : "Features"}
             </button>
           </a>
           <a href="#avis">
             <button className="text-white text-xl font-bold hover:text-gray-400 ml-10">
-              Feedback
+              {language === "fr" ? "Avis" : "Feedback"}
             </button>
           </a>
-          {/* <a href="#prix">
+          <a href="#demo">
             <button className="text-white text-xl font-bold hover:text-gray-400 ml-10">
-              Prix
-            </button>
-          </a> */}
-          <a href="#contact">
-            <button className=" text-white text-xl font-bold hover:text-gray-400 ml-10">
-              Contact
+              Demo
             </button>
           </a>
         </div>
@@ -85,27 +80,22 @@ function Navbar() {
             <div className="flex flex-col justify-start items-center">
               <a className="smooth-scroll" href="#avantages">
                 <button className="text-white text-xl font-bold hover:text-gray-400 py-4">
-                  Benefits
+                  {language === "fr" ? "Avantages" : "Advantages"}
                 </button>
               </a>
               <a className="smooth-scroll" href="#fonctionnalites">
                 <button className="text-white text-xl font-bold hover:text-gray-400 my-4">
-                  Features
+                  {language === "fr" ? "Fonctionnalités" : "Features"}
                 </button>
               </a>
               <a className="smooth-scroll" href="#avis">
                 <button className="text-white text-xl font-bold hover:text-gray-400 my-4">
-                  Feedback
+                  {language === "fr" ? "Avis" : "Feedback"}
                 </button>
               </a>
               <a className="smooth-scroll" href="#prix">
                 <button className="text-white text-xl font-bold hover:text-gray-400 my-4">
                   Demo
-                </button>
-              </a>
-              <a className="smooth-scroll" href="#contact">
-                <button className="text-white text-xl font-bold hover:text-gray-400 my-4">
-                  Contact
                 </button>
               </a>
             </div>

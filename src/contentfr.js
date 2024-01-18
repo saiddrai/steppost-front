@@ -7,22 +7,22 @@ export const home = {
 export const avis = {
   list: [
     {
-      name: "name",
-      job: "job",
-      text: "text",
-      image: "name.png",
+      name: "Said",
+      job: "CEO",
+      text: "En tant que Community Manager très multitâche, j'avais vraiment besoin de Steppost pour organiser mon travail, surtout lorsque vous gérez un podcast au milieu !",
+      stars: 5,
     },
     {
-      name: "name",
-      job: "job",
-      text: "text",
-      image: "name.png",
+      name: "Miko",
+      job: "CEO",
+      text: "En tant que fondateur technique, je ne peux pas consacrer trop de temps à la gestion des médias sociaux, donc un seul endroit pour tout, rendrait cela 100X plus facile",
+      stars: 5,
     },
     {
-      name: "name",
-      job: "job",
-      text: "text",
-      image: "name.png",
+      name: "Nabil",
+      job: "CEO",
+      text: "En tant que startup qui s'adresse aux masses, nous devons être très actifs sur de nombreuses plateformes SM, et avec Steppost, cette tâche énorme n'a jamais été aussi facile.",
+      stars: 5,
     },
   ],
   roadmap: [

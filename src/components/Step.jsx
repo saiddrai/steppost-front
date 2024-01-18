@@ -6,7 +6,7 @@ function Step({ title, description }) {
       <h1 className="font-title font-bold text-lg lg:text-xl leading-5">
         {title}
       </h1>
-      <p className="font-body ">{description} </p>
+      {/* <p className="font-body ">{description} </p> */}
     </div>
   );
 }

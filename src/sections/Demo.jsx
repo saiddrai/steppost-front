@@ -4,18 +4,19 @@ import fillCircle from "../assets/fillLight.png";
 import decouvrir from "../assets/decouvrir.png";
 import decouvrirHor from "../assets/decouvrirHor.png";
 
-function Demo({ videoData }) {
+function Demo({ language }) {
   // fetch from "itihad.me/api/video"
 
   return (
     <div className=" py-10">
       <h1 className="font-title m-6 font-bold text-5xl lg:text-6xl  lg:w-72 lg:text-right  ">
-        UN PETIT <br />
+        {language === "fr" ? "UN PETIT " : "A LITTLE "}
+        <br />
         <span className="text-purple text-6xl lg:text-7xl">DEMO ?</span>
       </h1>
       <div className=" flex flex-col lg:flex-row justify-center items-center ">
         <div className="lg:w-12 lg:ml-auto lg:mr-"></div>
-        <Video videoData={videoData} />
+        <Video />
 
         <img
           src={decouvrirHor}

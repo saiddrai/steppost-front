@@ -6,15 +6,16 @@ function App() {
   const browserLanguage = navigator.language;
 
   let content;
+  let browserLang = browserLanguage.startsWith("fr") ? "fr" : "en";
 
   if (browserLanguage.startsWith("fr")) {
     content = contentFr;
   } else {
-    content = contentFr;
+    content = contentEn;
   }
   return (
     <div>
-      <LandingPage content={content} />
+      <LandingPage content={content} language={browserLang} />
     </div>
   );
 }

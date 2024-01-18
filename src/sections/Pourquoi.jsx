@@ -1,10 +1,11 @@
 import Card from "../components/Card";
-function Pourquoi({ pourquoi }) {
+function Pourquoi({ pourquoi, language }) {
   return (
     <>
       <div className="py-10 px-4 lg:px-10">
         <h1 className="font-title font-bold text-4xl lg:text-5xl  lg:w-96 lg:text-right  ">
-          WHY CHOOSE <span className="text-purple">STEPPOST?</span>
+          {language === "fr" ? "POURQUOI CHOISIR " : " WHY CHOOSE "}
+          <span className="text-purple">STEPPOST?</span>
         </h1>
         <div
           className="flex flex-col justify-center items-center

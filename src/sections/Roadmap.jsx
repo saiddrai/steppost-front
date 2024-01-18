@@ -1,57 +1,8 @@
 import React, { useEffect, useState } from "react";
 import roadmap from "../assets/roadmap.svg";
 import Step from "../components/Step";
-import { roadmapList } from "../content";
-function Roadmap() {
-  // const [stepsLeft, setStepsRight] = useState([
-  //   {
-  //     title: "",
-  //     text: "",
-  //   },
-
-  //   {
-  //     title: "",
-  //     text: "",
-  //   },
-
-  //   {
-  //     title: "Generation de contenu avec IA",
-  //     text: "Step Post vous permet d'analyser les commentaires et d'en determiner la teneur, en darja aussi !",
-  //   },
-  //   {
-  //     title: "",
-  //     text: "",
-  //   },
-
-  //   {
-  //     title: "Analyse de sentiment",
-  //     text: "Step Post vous permet d'analyser les commentaires et d'en determiner la teneur, en darja aussi !",
-  //   },
-  // ]);
-  // const [stepsRight, setStepsLeft] = useState([
-  //   {
-  //     title: "",
-  //     text: "",
-  //   },
-  //   {
-  //     title: "Integration de Canva",
-  //     text: "Step Post integre les fonctionnalites de Canva directement dans notre plateforme, plus besoin de naviguer entre plusieurs fenetres pour creer vos visuels !",
-  //   },
-  //   {
-  //     title: "",
-  //     text: "",
-  //   },
-  //   {
-  //     title: "Social listening",
-  //     text: "",
-  //   },
-  //   {
-  //     title: "",
-  //     text: "",
-  //   },
-  // ]);
-  // fetch steps from api
-
+// import { roadmapList } from "../content";
+function Roadmap({ roadmapList }) {
   return (
     <div className="flex flex-col my-10 h-fit leading-[14px] lg:leading-tight text-sm lg:text-base w-screen px-4 lg:px-10 justify-center items-center">
       <h1 className="font-title font-bold text-3xl lg:text-4xl  lg:mr-44 lg:text-right  px-4 lg:px-10 text-end mr-14 ">
