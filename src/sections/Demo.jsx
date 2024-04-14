@@ -16,13 +16,9 @@ function Demo({ language }) {
       </h1>
       <div className=" flex flex-col lg:flex-row justify-center items-center ">
         <div className="lg:w-12 lg:ml-auto lg:mr-"></div>
-        <Video />
+        <Video language={language} />
 
-        <img
-          src={decouvrirHor}
-          className=" lg:hidden  ml-auto mr-6 mt-2 w-10/12"
-          alt=""
-        />
+        <img src={decouvrirHor} className=" lg:hidden  ml-auto mr-6 mt-2 w-10/12" alt="" />
         <img
           src={decouvrir}
           className="  rotate-90 hidden lg:flex  ml-auto lg:h-fit lg:rotate-0 lg:w-12 mr-6 mt-2 lg:ml-4 lg:mr-auto"

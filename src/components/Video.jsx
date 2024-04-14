@@ -1,9 +1,14 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import thumbnail from "../assets/thumbnail.png";
+import axios from "axios";
 
-const Video = () => {
+const Video = ({ language }) => {
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [videoSrc, setVideoSrc] = useState("");
+
+  const apiUrl = import.meta.env.VITE_APP_API_URL;
+  const baseUrl = import.meta.env.VITE_APP_URL;
 
   const handlePlayPause = () => {
     if (videoRef.current.paused) {
@@ -14,12 +19,23 @@ const Video = () => {
       setIsPlaying(false);
     }
   };
+  useEffect(() => {
+    const video = language === "fr" ? 1 : 3;
+    axios.get(`${apiUrl}/demos/${video}?populate=*`).then((response) => {
+      setVideoSrc(baseUrl + response.data.data.attributes.video.data.attributes.url);
+    });
+  }, []);
 
+  //  video dynamic done
+  // text li rah as a pic ywel i lang dynamic tan
+  // desactivation ta3 les sections done
+  // pdf for price done
+  //fix servies pixs
   return (
     <div className="relative   p-2 lg:w-3/4 w-11/12  border-dashed border-custom rounded-3xl">
       <video
         ref={videoRef}
-        src="../../public/video.mp4"
+        src={videoSrc}
         className="w-full rounded-2xl mx-auto"
         onClick={handlePlayPause}
         poster={thumbnail}
@@ -28,10 +44,7 @@ const Video = () => {
       </video>
       {!isPlaying && (
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-          <button
-            className="bg-purple text-white rounded-full p-2"
-            onClick={handlePlayPause}
-          >
+          <button className="bg-purple text-white rounded-full p-2" onClick={handlePlayPause}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-8 w-8"

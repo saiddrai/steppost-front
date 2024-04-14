@@ -22,6 +22,16 @@ function Navbar({ language }) {
     };
   }, []);
 
+  const smoothScrollToTarget = (targetId) => {
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      targetElement.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
+
   return (
     <div
       className={`transition duration-1000 scroll-smooth w-screen flex flex-row justify-between items-center ${
@@ -31,32 +41,32 @@ function Navbar({ language }) {
       <div className="flex flex-row justify-start items-center">
         <div className="hidden lg:flex flex-row justify-start items-center">
           <a href="#top">
-            <img
-              src={logo}
-              alt="logo"
-              className="mx-4 mr-20 my-2 lg:my-4 w-28  cursor-pointer  "
-            />
+            <img src={logo} alt="logo" className="mx-4 mr-20 my-2 lg:my-4 w-28  cursor-pointer  " />
           </a>
-          <a href="#avantages">
-            <button className="text-white text-xl font-bold hover:text-gray-400">
-              {language === "fr" ? "Avantages" : "Advantages"}
-            </button>
-          </a>
-          <a href="#fonctionnalites">
-            <button className="text-white text-xl font-bold hover:text-gray-400 ml-10">
-              {language === "fr" ? "Fonctionnalités" : "Features"}
-            </button>
-          </a>
-          <a href="#avis">
-            <button className="text-white text-xl font-bold hover:text-gray-400 ml-10">
-              {language === "fr" ? "Avis" : "Feedback"}
-            </button>
-          </a>
-          <a href="#demo">
-            <button className="text-white text-xl font-bold hover:text-gray-400 ml-10">
-              Demo
-            </button>
-          </a>
+          <button
+            onClick={() => smoothScrollToTarget("avantages")}
+            className="text-white text-xl font-bold hover:text-gray-400"
+          >
+            {language === "fr" ? "Avantages" : "Advantages"}
+          </button>
+          <button
+            onClick={() => smoothScrollToTarget("fonctionnalites")}
+            className="text-white text-xl font-bold hover:text-gray-400 ml-10"
+          >
+            {language === "fr" ? "Fonctionnalités" : "Features"}
+          </button>
+          <button
+            onClick={() => smoothScrollToTarget("services")}
+            className="text-white text-xl font-bold hover:text-gray-400 ml-10"
+          >
+            {language === "fr" ? "Services" : "Services"}
+          </button>
+          <button
+            onClick={() => smoothScrollToTarget("demo")}
+            className="text-white text-xl font-bold hover:text-gray-400 ml-10"
+          >
+            Demo
+          </button>
         </div>
         {/* sandwich menu hero icon button to make it responsive */}
         <div
@@ -78,26 +88,30 @@ function Navbar({ language }) {
           </div>
           {menuOpen && (
             <div className="flex flex-col justify-start items-center">
-              <a className="smooth-scroll" href="#avantages">
-                <button className="text-white text-xl font-bold hover:text-gray-400 py-4">
-                  {language === "fr" ? "Avantages" : "Advantages"}
-                </button>
-              </a>
-              <a className="smooth-scroll" href="#fonctionnalites">
-                <button className="text-white text-xl font-bold hover:text-gray-400 my-4">
-                  {language === "fr" ? "Fonctionnalités" : "Features"}
-                </button>
-              </a>
-              <a className="smooth-scroll" href="#avis">
-                <button className="text-white text-xl font-bold hover:text-gray-400 my-4">
-                  {language === "fr" ? "Avis" : "Feedback"}
-                </button>
-              </a>
-              <a className="smooth-scroll" href="#prix">
-                <button className="text-white text-xl font-bold hover:text-gray-400 my-4">
-                  Demo
-                </button>
-              </a>
+              <button
+                onClick={() => smoothScrollToTarget("avantages")}
+                className="text-white text-xl font-bold hover:text-gray-400 py-4"
+              >
+                {language === "fr" ? "Avantages" : "Advantages"}
+              </button>
+              <button
+                onClick={() => smoothScrollToTarget("fonctionnalites")}
+                className="text-white text-xl font-bold hover:text-gray-400 my-4"
+              >
+                {language === "fr" ? "Fonctionnalités" : "Features"}
+              </button>
+              <button
+                onClick={() => smoothScrollToTarget("avis")}
+                className="text-white text-xl font-bold hover:text-gray-400 my-4"
+              >
+                {language === "fr" ? "Avis" : "Feedback"}
+              </button>
+              <button
+                onClick={() => smoothScrollToTarget("prix")}
+                className="text-white text-xl font-bold hover:text-gray-400 my-4"
+              >
+                Demo
+              </button>
             </div>
           )}
         </div>

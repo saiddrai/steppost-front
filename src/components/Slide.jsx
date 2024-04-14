@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import dots from "../assets/dotsDark.png";
 import fillCircle from "../assets/fillLight.png";
-function Slide({ paragraph, image1, image2, svg, size, position, id }) {
+function Slide({ title, description, svg, image1, image2, size, position, id }) {
   return (
     <div
       className={`h-full w-screen lg:h-screen flex justify-center items-center px-0 py-0 font-title lg:overflow-hidden bg-lightbg   text-xl`}
@@ -12,12 +12,10 @@ function Slide({ paragraph, image1, image2, svg, size, position, id }) {
         } flex-col  text-black p-10 w-full h-full "`}
       >
         <div className="flex flex-col text-left justify-center items-start  w-full lg:w-1/2">
-          <h1 className="text-4xl pb-8  font-bold  text-purple">
-            {paragraph.title}{" "}
-          </h1>
-          <p className="text-2xl pb-14 ">{paragraph.description}</p>
+          <h1 className="text-4xl pb-8  font-bold  text-purple">{title} </h1>
+          <p className="text-2xl pb-14 ">{description}</p>
           <img
-            src={svg}
+            src={`./public/${svg}`}
             alt="svg"
             className={`"absolute z-6 h-40 top-[${position[4]}%] left-[${position[5]}%]"`}
           />

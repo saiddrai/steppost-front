@@ -1,13 +1,14 @@
 import React from "react";
 
-function Avi({ name, job, text, picture, stars }) {
+function Avi({ name, job, text, image, stars }) {
+  const baseUrl = import.meta.env.VITE_APP_URL;
   return (
     <div
       className="rounded-2xl border-dashed px-4 py-8 w-56 h-64 border-custom
      flex flex-nowrap flex-col justify-between items-center"
     >
       <img
-        src={picture}
+        src={`${baseUrl}${image}`}
         alt="xxx"
         className="rounded-full w-12 h-12  translate-y-[-3.2rem]"
       />{" "}
