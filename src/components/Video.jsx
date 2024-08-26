@@ -20,9 +20,12 @@ const Video = ({ language }) => {
     }
   };
   useEffect(() => {
-    const video = language === "fr" ? 1 : 3;
-    axios.get(`${apiUrl}/demos/${video}?populate=*`).then((response) => {
-      setVideoSrc(baseUrl + response.data.data.attributes.video.data.attributes.url);
+    axios.get(`${apiUrl}/demos/?populate=*`).then((response) => {
+      const link =
+        language === "fr"
+          ? baseUrl + response.data.data[1].attributes.video.data.attributes.url
+          : baseUrl + response.data.data[0].attributes.video.data.attributes.url;
+      setVideoSrc(link);
     });
   }, []);
 

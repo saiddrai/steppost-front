@@ -15,7 +15,7 @@ function Slide({ title, description, svg, image1, image2, size, position, id }) 
           <h1 className="text-4xl pb-8  font-bold  text-purple">{title} </h1>
           <p className="text-2xl pb-14 ">{description}</p>
           <img
-            src={`./public/${svg}`}
+            src={`../../public/${svg}`}
             alt="svg"
             className={`"absolute z-6 h-40 top-[${position[4]}%] left-[${position[5]}%]"`}
           />

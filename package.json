@@ -14,6 +14,7 @@
     "axios": "^1.6.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^6.26.1",
     "strapi-sdk-javascript": "^0.3.3",
     "swiper": "^9.4.1",
     "swiper-bundle": "^0.0.1-security"

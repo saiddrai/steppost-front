@@ -1,12 +1,23 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import facebook from "../assets/facebook.svg";
 import instagram from "../assets/instagram.svg";
 import linkedin from "../assets/linkedin.svg";
 import discord from "../assets/discord.svg";
+import tiktok from "../assets/tiktok.svg";
+import whatsapp from "../assets/whatsapp.svg";
 import itihadlogo from "../assets/itihadlogo.svg";
 import logo from "../assets/logoFull.svg";
 import axios from "axios";
 function Footer({ language }) {
+  const [facebookLink, setFacebookLink] = useState(null);
+  const [instagramLink, setInstagramLink] = useState(null);
+  const [tiktokLink, setTiktokLink] = useState(null);
+  const [whatsappLink, setWhatsappLink] = useState(null);
+  const [linkedinLink, setLinkedinLink] = useState(null);
+  const [twitterLink, setTwitterLink] = useState(null);
+  const [tos, setTos] = useState(null);
+  const [privacy, setPrivacy] = useState(null);
+
   const [paragraphs, setParagraphs] = React.useState([
     {
       id: 1,
@@ -24,6 +35,22 @@ function Footer({ language }) {
       text: "",
     },
   ]);
+  const apiUrl = import.meta.env.VITE_APP_API_URL;
+  useEffect(() => {
+    axios.get(`${apiUrl}/footers/?populate=*`).then((response) => {
+      const tempData = response.data.data[0].attributes.paragraphs.data.map((item) => ({
+        id: item.id,
+        title: item.attributes.title,
+        link: item.attributes.description,
+      }));
+      setFacebookLink(tempData[0]);
+      setInstagramLink(tempData[1]);
+      setTiktokLink(tempData[2]);
+      setWhatsappLink(tempData[3]);
+      setTos(tempData[4]);
+      setPrivacy(tempData[5]);
+    });
+  }, []);
 
   return (
     <>
@@ -53,37 +80,45 @@ function Footer({ language }) {
             <p className="font-body text-white ">
               Politique de confidentialité Conditions d'utilisation Cookies{" "}
             </p>
-            <h1 className="font-title mt-4 font-bold text-xl text-black">
-              Mentions légales{" "}
-            </h1>
-            <p className="font-body text-white text-center">
-              2024 SARL Groupe Bastion.{" "}
-            </p>
+            <h1 className="font-title mt-4 font-bold text-xl text-black">Mentions légales </h1>
+            <p className="font-body text-white text-center">2024 SARL Step Post com. </p>
           </div>
           <div className="lg:w-1/4 flex flex-col justify-end h-full items-start">
-            <h1 className="font-title mb-2 font-bold text-xl text-black">
-              Nos réseaux sociaux
-            </h1>
+            <h1 className="font-title mb-2 font-bold text-xl text-black">Nos réseaux sociaux</h1>
             <div className="flex flex-row space-x-4">
-              <a href="https://facebook.com" target="_blank">
-                <img src={facebook} alt="facebook" className="w-6 h-6" />
-              </a>
-              <a href="" target="_blank">
-                <img src={instagram} alt="instagram" className="w-6 h-6" />
-              </a>
-              <a href="" target="_blank">
-                <img src={linkedin} alt="linkedin" className="w-6 h-6" />
-              </a>
-              <a href="" target="_blank">
-                <img src={discord} alt="discord" className="w-6 h-6" />
-              </a>
+              {facebookLink && (
+                <a href={facebookLink.link} target="_blank">
+                  <img src={facebook} alt="facebook" className="w-6 h-6" />
+                </a>
+              )}
+              {instagramLink && (
+                <a href={instagramLink.link} target="_blank">
+                  <img src={instagram} alt="instagram" className="w-6 h-6" />
+                </a>
+              )}
+              {tiktokLink && (
+                <a href={tiktokLink.link} target="_blank">
+                  <img src={tiktok} alt="tiktok" className="w-6 h-6" />
+                </a>
+              )}
+              {whatsappLink && (
+                <a href={whatsappLink.link} target="_blank">
+                  <img src={whatsapp} alt="whatsapp" className="w-6 h-6" />
+                </a>
+              )}
+              {linkedinLink && (
+                <a href={linkedinLink.link} target="_blank">
+                  <img src={linkedin} alt="linkedin" className="w-6 h-6" />
+                </a>
+              )}
+              {twitterLink && (
+                <a href={twitterLink.link} target="_blank">
+                  <img src={twitter} alt="twitter" className="w-6 h-6" />
+                </a>
+              )}
             </div>
-            <h1 className="font-title mt-4 font-bold text-xl text-black">
-              Partenaires
-            </h1>
-            <p className="font-body text-white text-center mB-2">
-              @itihad.group
-            </p>
+            <h1 className="font-title mt-4 font-bold text-xl text-black">Partenaires</h1>
+            <p className="font-body text-white text-center mB-2">@itihad.group</p>
             <img src={itihadlogo} alt="itihadlogo" className="w-24" />
           </div>
         </div>
@@ -108,40 +143,66 @@ function Footer({ language }) {
           </div>
           <div className="lg:w-1/4 flex flex-col  justify-end h-full  items-start">
             <h1 className="font-title font-bold text-xl text-black">extra</h1>
-            <p className="font-body text-white ">
-              Privacy policy Terms of use Cookies{" "}
-            </p>
-            <h1 className="font-title mt-4 font-bold text-xl text-black">
-              Legal mentions{" "}
-            </h1>
-            <p className="font-body text-white text-center">
-              2024 SARL Bastion Group.{" "}
-            </p>
+            <p className="font-body text-white ">Privacy policy Terms of use Cookies </p>
+            <h1 className="font-title mt-4 font-bold text-xl text-black">Legal mentions </h1>
+            <p className="font-body text-white text-center">2024 SARL Bastion Group. </p>
+            {tos && (
+              <a href="/tos/" className="font-body text-white text-center">
+                {tos.title}
+              </a>
+            )}
+            {privacy && (
+              <a href="/privacy" className="font-body text-white text-center">
+                {privacy.title}
+              </a>
+            )}
+            {!tos && (
+              <a href="/tos/" className="font-body text-white text-center">
+                Terms Of Use
+              </a>
+            )}
+            {!privacy && (
+              <a href="/privacy" className="font-body text-white text-center">
+                Privacy Policy
+              </a>
+            )}
           </div>
           <div className="lg:w-1/4 flex flex-col  justify-end h-full  items-start">
-            <h1 className="font-title mb-2 font-bold text-xl text-black">
-              our socials
-            </h1>
+            <h1 className="font-title mb-2 font-bold text-xl text-black">our socials</h1>
             <div className="flex flex-row space-x-4">
-              <a href="https://facebook.com" target="_blank">
-                <img src={facebook} alt="facebook" className="w-6 h-6" />
-              </a>
-              <a href="" target="_blank">
-                <img src={instagram} alt="instagram" className="w-6 h-6" />
-              </a>
-              <a href="" target="_blank">
-                <img src={linkedin} alt="linkedin" className="w-6 h-6" />
-              </a>
-              <a href="" target="_blank">
-                <img src={discord} alt="discord" className="w-6 h-6" />
-              </a>
+              {facebookLink && (
+                <a href={facebookLink.link} target="_blank">
+                  <img src={facebook} alt="facebook" className="w-6 h-6" />
+                </a>
+              )}
+              {instagramLink && (
+                <a href={instagramLink.link} target="_blank">
+                  <img src={instagram} alt="instagram" className="w-6 h-6" />
+                </a>
+              )}
+              {tiktokLink && (
+                <a href={tiktokLink.link} target="_blank">
+                  <img src={tiktok} alt="tiktok" className="w-6 h-6" />
+                </a>
+              )}
+              {whatsappLink && (
+                <a href={whatsappLink.link} target="_blank">
+                  <img src={whatsapp} alt="whatsapp" className="w-6 h-6" />
+                </a>
+              )}
+              {linkedinLink && (
+                <a href={linkedinLink.link} target="_blank">
+                  <img src={linkedin} alt="linkedin" className="w-6 h-6" />
+                </a>
+              )}
+              {twitterLink && (
+                <a href={twitterLink.link} target="_blank">
+                  <img src={twitter} alt="twitter" className="w-6 h-6" />
+                </a>
+              )}
             </div>
-            <h1 className="font-title mt-4 font-bold text-xl text-black">
-              partners
-            </h1>
-            <p className="font-body text-white text-center mB-2">
-              @itihad.group
-            </p>
+            <h1 className="font-title mt-4 font-bold text-xl text-black">partners</h1>
+            <p className="font-body text-white text-center mB-2">@itihad.group</p>
             <img src={itihadlogo} alt="itihadlogo" className="w-24" />
           </div>
         </div>

@@ -1,6 +1,9 @@
 import LandingPage from "./LandingPage";
 import contentFr from "./contentfr";
 import contentEn from "./content";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Tos from "./tos&privacy/Tos";
+import Privacy from "./tos&privacy/Privacy";
 
 function App() {
   const browserLanguage = navigator.language;
@@ -16,9 +19,14 @@ function App() {
     content = contentEn;
   }
   return (
-    <div>
-      <LandingPage content={content} language={browserLang} />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<LandingPage content={content} language={browserLang} />} />
+        {/* <LandingPage content={content} language={browserLang} /> */}
+        <Route path="/tos" element={<Tos />} />
+        <Route path="privacy" element={<Privacy />} />
+      </Routes>
+    </Router>
   );
 }
 

@@ -67,6 +67,12 @@ function Navbar({ language }) {
           >
             Demo
           </button>
+          <button
+            onClick={() => smoothScrollToTarget("blog")}
+            className="text-white text-xl font-bold hover:text-gray-400 ml-10"
+          >
+            Blog
+          </button>
         </div>
         {/* sandwich menu hero icon button to make it responsive */}
         <div
@@ -92,7 +98,7 @@ function Navbar({ language }) {
                 onClick={() => smoothScrollToTarget("avantages")}
                 className="text-white text-xl font-bold hover:text-gray-400 py-4"
               >
-                {language === "fr" ? "Avantages" : "Advantages"}
+                {language === "fr" ? "Avantages" : "Benefits"}
               </button>
               <button
                 onClick={() => smoothScrollToTarget("fonctionnalites")}
@@ -107,7 +113,13 @@ function Navbar({ language }) {
                 {language === "fr" ? "Avis" : "Feedback"}
               </button>
               <button
-                onClick={() => smoothScrollToTarget("prix")}
+                onClick={() => smoothScrollToTarget("demo")}
+                className="text-white text-xl font-bold hover:text-gray-400 my-4"
+              >
+                Demo
+              </button>
+              <button
+                onClick={() => smoothScrollToTarget("blog")}
                 className="text-white text-xl font-bold hover:text-gray-400 my-4"
               >
                 Demo

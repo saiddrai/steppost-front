@@ -32,6 +32,42 @@ export const avis = {
     },
   ],
 };
+
+export const blog = {
+  list: [
+    {
+      id: 1,
+      title: "My first blog post",
+      text: "This is the text of my first blog post. It's a great place to put your thoughts and ideas.",
+      date: "2021-01-01",
+    },
+    {
+      id: 2,
+      title: "My second blog post",
+      text: "This is the text of my second blog post. It's another great place to put your thoughts and ideas.",
+      date: "2021-01-02",
+    },
+    {
+      id: 3,
+      title: "My third blog post",
+      text: "This is the text of my third blog post. It's yet another great place to put your thoughts and ideas.",
+      date: "2021-01-03",
+    },
+    {
+      id: 4,
+      title: "My fourth blog post",
+      text: "This is the text of my fourth blog post. It's yet another great place to put your thoughts and ideas.",
+      date: "2021-01-04",
+    },
+    {
+      id: 5,
+      title: "My fifth blog post",
+      text: "This is the text of my fifth blog post. It's yet another great place to put your thoughts and ideas.",
+      date: "2021-01-05",
+    },
+  ],
+};
+
 export const prices = {
   lsit: [
     {

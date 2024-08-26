@@ -11,6 +11,7 @@ import Services from "./sections/Services";
 import Carousel from "./sections/Test";
 import PricesNew from "./sections/PricesNew";
 import axios from "axios";
+import Blog from "./sections/Blog";
 
 function LandingPage({ content, language }) {
   const [ActivatedSections, setActivatedSections] = useState([
@@ -27,7 +28,6 @@ function LandingPage({ content, language }) {
   useEffect(() => {
     axios.get(`${apiUrl}/sections`).then((response) => {
       const sections = response.data.data.map((section) => section.attributes.active);
-      console.log(sections);
       setActivatedSections(sections);
     });
   }, []);
@@ -68,7 +68,13 @@ function LandingPage({ content, language }) {
           <Services language={language} />
         </section>
       )}
+
       {ActivatedSections[6] && <PricesNew language={language} />}
+      {ActivatedSections[7] && (
+        <section id="blog">
+          <Blog language={language} />
+        </section>
+      )}
       <Footer language={language} />
     </div>
   );

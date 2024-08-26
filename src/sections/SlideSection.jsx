@@ -2,10 +2,8 @@ import React, { useState, useEffect } from "react";
 import { ChevronRightIcon, ChevronLeftIcon } from "@heroicons/react/24/solid";
 
 import Slide from "../components/Slide";
-
 import axios from "axios";
 
-// import images from content.slides in an array of objects that contains two images
 const SlideSection = ({ slides, language }) => {
   const [slidesContent, setSlidesContent] = useState([]);
   const apiUrl = import.meta.env.VITE_APP_API_URL;
@@ -28,7 +26,7 @@ const SlideSection = ({ slides, language }) => {
             }
             image1={`${baseUrl}${item.attributes.image1.data.attributes.url}`}
             image2={`${baseUrl}${item.attributes.image2.data.attributes.url}`}
-            svg={item.attributes.svg}
+            svg={`${item.attributes.svg}.svg`}
             id={i + 1}
             size={[60, 10]}
             position={[30, 10, 30, 10, 60, 10]}
