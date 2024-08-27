@@ -19,9 +19,7 @@ function PriceCard({ data, language }) {
 
   const openPDF = () => {
     const path =
-      language === "fr"
-        ? "/public/Steppost_offre_commerciale.pdf"
-        : "/public/Steppost_service_offer.pdf";
+      language === "fr" ? "/Steppost_offre_commerciale.pdf" : "/Steppost_service_offer.pdf";
     window.open(path, "_blank");
   };
 

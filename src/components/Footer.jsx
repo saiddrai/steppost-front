@@ -77,9 +77,28 @@ function Footer({ language }) {
             <h1 className="font-title font-bold text-xl text-black">
               {paragraphs && paragraphs[1].title}
             </h1>
-            <p className="font-body text-white ">
-              Politique de confidentialité Conditions d'utilisation Cookies{" "}
-            </p>
+
+            {tos && (
+              <a href="/tos/" className="font-body text-white text-center underline">
+                {/* {tos.title} */}
+                Conditions d'utilisation
+              </a>
+            )}
+            {privacy && (
+              <a href="/privacy" className="font-body text-white text-center underline">
+                Politique de confidentialité{" "}
+              </a>
+            )}
+            {!tos && (
+              <a href="/tos/" className="font-body text-white text-center underline">
+                Conditions d'utilisation
+              </a>
+            )}
+            {!privacy && (
+              <a href="/privacy" className="font-body text-white text-center underline">
+                Politique de confidentialité{" "}
+              </a>
+            )}
             <h1 className="font-title mt-4 font-bold text-xl text-black">Mentions légales </h1>
             <p className="font-body text-white text-center">2024 SARL Step Post com. </p>
           </div>
@@ -143,29 +162,29 @@ function Footer({ language }) {
           </div>
           <div className="lg:w-1/4 flex flex-col  justify-end h-full  items-start">
             <h1 className="font-title font-bold text-xl text-black">extra</h1>
-            <p className="font-body text-white ">Privacy policy Terms of use Cookies </p>
-            <h1 className="font-title mt-4 font-bold text-xl text-black">Legal mentions </h1>
-            <p className="font-body text-white text-center">2024 SARL Bastion Group. </p>
+
             {tos && (
-              <a href="/tos/" className="font-body text-white text-center">
+              <a href="/tos/" className="font-body text-white text-center underline">
                 {tos.title}
               </a>
             )}
             {privacy && (
-              <a href="/privacy" className="font-body text-white text-center">
+              <a href="/privacy" className="font-body text-white text-center underline">
                 {privacy.title}
               </a>
             )}
             {!tos && (
-              <a href="/tos/" className="font-body text-white text-center">
+              <a href="/tos/" className="font-body text-white text-center underline">
                 Terms Of Use
               </a>
             )}
             {!privacy && (
-              <a href="/privacy" className="font-body text-white text-center">
+              <a href="/privacy" className="font-body text-white text-center underline">
                 Privacy Policy
               </a>
             )}
+            <h1 className="font-title mt-4 font-bold text-xl text-black">Legal mentions </h1>
+            <p className="font-body text-white text-center">2024 SARL Bastion Group. </p>
           </div>
           <div className="lg:w-1/4 flex flex-col  justify-end h-full  items-start">
             <h1 className="font-title mb-2 font-bold text-xl text-black">our socials</h1>
