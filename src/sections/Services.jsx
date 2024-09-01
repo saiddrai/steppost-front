@@ -24,8 +24,9 @@ function Services({ language }) {
               description: response.data.data[4].attributes.description,
             };
       setDescription(tempDescrption);
-
-      const tempData = response.data.data.map((item) => ({
+      const poped = response.data.data;
+      poped.pop();
+      const tempData = poped.map((item) => ({
         title:
           language === "fr"
             ? item.attributes.localizations.data[0].attributes.title
@@ -36,7 +37,6 @@ function Services({ language }) {
             : item.attributes.description,
         image: `${baseUrl}${item.attributes.image.data.attributes.url}`,
       }));
-      tempData.pop();
       setServices(tempData);
     });
   }, []);

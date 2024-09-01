@@ -45,7 +45,7 @@ function PriceCard({ data, language }) {
         onClick={openPDF}
         className=" relative self-end flex flex-row mx-2 h-2 font-title font-bold text-2xl"
       >
-        <span className="z-10 mr-6">JE M'INSCRIS </span>
+        <span className="z-10 mr-6">{language === "fr" ? "Voir plus" : "View More"}</span>
         <img className="h-10 absolute right-0 " src={purple_circle} alt="" />
       </button>
     </div>

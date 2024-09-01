@@ -184,7 +184,7 @@ function Footer({ language }) {
               </a>
             )}
             <h1 className="font-title mt-4 font-bold text-xl text-black">Legal mentions </h1>
-            <p className="font-body text-white text-center">2024 SARL Bastion Group. </p>
+            <p className="font-body text-white text-center">2024 SARL Step Post. </p>
           </div>
           <div className="lg:w-1/4 flex flex-col  justify-end h-full  items-start">
             <h1 className="font-title mb-2 font-bold text-xl text-black">our socials</h1>
