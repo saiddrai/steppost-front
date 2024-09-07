@@ -35,6 +35,15 @@ function Footer({ language }) {
       text: "",
     },
   ]);
+  const smoothScrollToTarget = (targetId) => {
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      targetElement.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
   const apiUrl = import.meta.env.VITE_APP_API_URL;
   useEffect(() => {
     axios.get(`${apiUrl}/footers/?populate=*`).then((response) => {
@@ -53,25 +62,40 @@ function Footer({ language }) {
   }, []);
 
   return (
-    <>
+    <div>
       {language === "fr" ? (
-        <div className="h-fit pt-64 lg:h-[350px] w-screen bg-footerbg bg-cover bg-[-10px] px-8 space-y-8 lg:pt-20 flex flex-col lg:flex-row justify-center items-start lg:items-center pb-12">
+        <div className="h-fit pt-64 lg:h-[370px] w-screen bg-footerbg bg-cover px-8 space-y-8 lg:pt-20 flex flex-col lg:flex-row justify-center items-start lg:items-center pb-12">
           {/* four divs one for the logo, the second a title and a text, the third si twice the second, the fourth is social media icons and partners logos */}
           <div className="lg:w-1/4 flex flex-col justify-end h-full items-center">
             <img src={logo} alt="logo" className="w-28" />
           </div>
           <div className="lg:w-1/4 flex flex-col justify-end h-full items-start">
-            <h1 className="font-title font-bold text-xl text-black">
+            <h1 className="font-title font-bold text-xl pt-4 text-black">
               {paragraphs && paragraphs[0].title}
             </h1>
-            <p className="grid grid-cols-2 lg:flex flex-col font-body font-thin underline text-white">
-              <a href="#acceuil"> Accueil </a>
-              <a href="#avantages"> Pourquoi nous choisir ?</a>
-              <a> Nos fonctionnalités </a>
-              <a> Démo</a>
-              <a> Avis des clients </a>
-              <a> Feuille de route</a>
-            </p>
+            <div className="grid grid-cols-2 lg:flex flex-col font-body font-thin underline text-white">
+              <button onClick={() => smoothScrollToTarget("acceuil")} className="text-left p-0">
+                {language === "fr" ? "Accueil" : "Home"}
+              </button>
+              <button onClick={() => smoothScrollToTarget("avantages")} className="text-left p-0">
+                {language === "fr" ? "Avantages" : "Advantages"}
+              </button>
+              <button
+                onClick={() => smoothScrollToTarget("fonctionnalites")}
+                className="text-left p-0"
+              >
+                {language === "fr" ? "Fonctionnalités" : "Features"}
+              </button>
+              <button onClick={() => smoothScrollToTarget("services")} className="text-left p-0">
+                Services
+              </button>
+              <button onClick={() => smoothScrollToTarget("demo")} className="text-left p-0">
+                Demo
+              </button>
+              <button onClick={() => smoothScrollToTarget("blog")} className="text-left p-0">
+                Blog
+              </button>
+            </div>
           </div>
           <div className="lg:w-1/4 flex flex-col justify-end h-full items-start">
             <h1 className="font-title font-bold text-xl text-black">
@@ -137,28 +161,51 @@ function Footer({ language }) {
               )}
             </div>
             <h1 className="font-title mt-4 font-bold text-xl text-black">Partenaires</h1>
-            <p className="font-body text-white text-center mB-2">@itihad.group</p>
-            <img src={itihadlogo} alt="itihadlogo" className="w-24" />
+            <a
+              href="https://itihad.group"
+              target="_blank"
+              className="font-body text-white text-center mB-2"
+            >
+              @itihad.group
+            </a>
+            <a href="https://itihad.group" target="_blank">
+              <img src={itihadlogo} alt="itihadlogo" className="w-24" />
+            </a>{" "}
           </div>
         </div>
       ) : (
-        <div className="h-fit  pt-64 lg:h-[350px] w-screen bg-footerbg bg-cover bg-[-10px] px-8 space-y-8 lg:pt-20 flex flex-col lg:flex-row justify-center items-start lg:items-center pb-12">
+        <div className="h-fit  pt-64 lg:h-[400px] w-screen bg-footerbg bg-cover bg-[-10px] px-8 space-y-8 lg:pt-20 flex flex-col lg:flex-row justify-center items-start lg:items-center pb-12">
           {/* four divs one for the logo, the second a title and a text, the third si twice the second, the fourth is social media icons and partners logos */}
           <div className="lg:w-1/4 flex flex-col  justify-end h-full  items-center">
             <img src={logo} alt="logo" className="w-28" />
           </div>
           <div className="lg:w-1/4 flex flex-col justify-end h-full items-start">
-            <h1 className="font-title font-bold text-xl text-black">
+            <h1 className="font-title font-bold text-xl pt-4 text-black">
               {paragraphs && paragraphs[0].title}
             </h1>
-            <p className="grid grid-cols-2 lg:flex flex-col font-body font-thin underline text-white">
-              <a href="#acceuil"> Home </a>
-              <a href="#avantages"> Why choose us ?</a>
-              <a> Our Features </a>
-              <a> Demo</a>
-              <a> Clients Feedback </a>
-              <a> Roadmap</a>
-            </p>
+            <div className="grid grid-cols-2 lg:flex flex-col font-body font-thin underline text-white">
+              <button onClick={() => smoothScrollToTarget("acceuil")} className="text-left p-0">
+                {language === "fr" ? "Accueil" : "Home"}
+              </button>
+              <button onClick={() => smoothScrollToTarget("avantages")} className="text-left p-0">
+                {language === "fr" ? "Avantages" : "Advantages"}
+              </button>
+              <button
+                onClick={() => smoothScrollToTarget("fonctionnalites")}
+                className="text-left p-0"
+              >
+                {language === "fr" ? "Fonctionnalités" : "Features"}
+              </button>
+              <button onClick={() => smoothScrollToTarget("services")} className="text-left p-0">
+                Services
+              </button>
+              <button onClick={() => smoothScrollToTarget("demo")} className="text-left p-0">
+                Demo
+              </button>
+              <button onClick={() => smoothScrollToTarget("blog")} className="text-left p-0">
+                Blog
+              </button>
+            </div>
           </div>
           <div className="lg:w-1/4 flex flex-col  justify-end h-full  items-start">
             <h1 className="font-title font-bold text-xl text-black">extra</h1>
@@ -184,7 +231,7 @@ function Footer({ language }) {
               </a>
             )}
             <h1 className="font-title mt-4 font-bold text-xl text-black">Legal mentions </h1>
-            <p className="font-body text-white text-center">2024 SARL Step Post. </p>
+            <p className="font-body text-white text-center">2024 SARL Step Post Com. </p>
           </div>
           <div className="lg:w-1/4 flex flex-col  justify-end h-full  items-start">
             <h1 className="font-title mb-2 font-bold text-xl text-black">our socials</h1>
@@ -221,12 +268,20 @@ function Footer({ language }) {
               )}
             </div>
             <h1 className="font-title mt-4 font-bold text-xl text-black">partners</h1>
-            <p className="font-body text-white text-center mB-2">@itihad.group</p>
-            <img src={itihadlogo} alt="itihadlogo" className="w-24" />
+            <a
+              href="https://itihad.group"
+              target="_blank"
+              className="font-body text-white text-center mB-2"
+            >
+              @itihad.group
+            </a>
+            <a href="https://itihad.group" target="_blank">
+              <img src={itihadlogo} alt="itihadlogo" className="w-24" />
+            </a>
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 }
 

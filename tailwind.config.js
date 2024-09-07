@@ -1,3 +1,5 @@
+import Cta from "./src/sections/Cta";
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
@@ -19,6 +21,7 @@ export default {
         sandver: "url('/src/assets/sandclock.png')",
         cup: "url('/src/assets/purplecup.png')",
         footerbg: "url('/src/assets/footerbg.svg')",
+        cta: "url('/src/assets/ctabg.png')",
       },
 
       colors: {

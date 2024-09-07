@@ -12,6 +12,7 @@ import Carousel from "./sections/Test";
 import PricesNew from "./sections/PricesNew";
 import axios from "axios";
 import Blog from "./sections/Blog";
+import Cta from "./sections/Cta";
 
 function LandingPage({ content, language }) {
   const [ActivatedSections, setActivatedSections] = useState([
@@ -29,6 +30,13 @@ function LandingPage({ content, language }) {
     axios.get(`${apiUrl}/sections`).then((response) => {
       const sections = response.data.data.map((section) => section.attributes.active);
       setActivatedSections(sections);
+    });
+    axios.get(`https://steppost.com/api/api/paragraphs/29/?populate=*`).then((response) => {
+      if (language === "fr") {
+      } else {
+        const test2 = response.data.data.attributes;
+        // console.log(test2);
+      }
     });
   }, []);
 
@@ -70,6 +78,7 @@ function LandingPage({ content, language }) {
       )}
 
       {ActivatedSections[6] && <PricesNew language={language} />}
+      <Cta />
       {ActivatedSections[7] && (
         <section id="blog">
           <Blog language={language} />

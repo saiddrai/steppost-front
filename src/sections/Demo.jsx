@@ -2,6 +2,7 @@ import React from "react";
 import Video from "../components/Video";
 import fillCircle from "../assets/fillLight.png";
 import decouvrir from "../assets/decouvrir.png";
+import decouvrirEng from "../assets/dis.png";
 import decouvrirHor from "../assets/decouvrirHor.png";
 
 function Demo({ language }) {
@@ -19,11 +20,19 @@ function Demo({ language }) {
         <Video language={language} />
 
         <img src={decouvrirHor} className=" lg:hidden  ml-auto mr-6 mt-2 w-10/12" alt="" />
-        <img
-          src={decouvrir}
-          className="  rotate-90 hidden lg:flex  ml-auto lg:h-fit lg:rotate-0 lg:w-12 mr-6 mt-2 lg:ml-4 lg:mr-auto"
-          alt=""
-        />
+        {language === "fr" ? (
+          <img
+            src={decouvrir}
+            className="  rotate-90 hidden lg:flex  ml-auto lg:h-fit lg:rotate-0 lg:w-12 mr-6 mt-2 lg:ml-4 lg:mr-auto"
+            alt=""
+          />
+        ) : (
+          <img
+            src={decouvrirEng}
+            className="  rotate-90 hidden lg:flex opacity-5  ml-auto lg:h-fit lg:rotate-0 lg:w-12 mr-6 mt-2 lg:ml-4 lg:mr-auto"
+            alt=""
+          />
+        )}
       </div>
       <img
         src={fillCircle}
