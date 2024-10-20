@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import dots from "../assets/dotsDark.png";
 import fillCircle from "../assets/fillLight.png";
+
 function Slide({ title, description, svg, image1, image2, size, position, id }) {
+  // console.log(svgfile);
   return (
     <div
       className={`h-full w-screen lg:h-screen flex justify-center items-center px-0 py-0 font-title lg:overflow-hidden bg-lightbg   text-xl`}
@@ -15,7 +17,7 @@ function Slide({ title, description, svg, image1, image2, size, position, id }) 
           <h1 className="text-4xl pb-8  font-bold  text-purple">{title} </h1>
           <p className="text-2xl pb-14 ">{description}</p>
           <img
-            src={`../../public/${svg}`}
+            src={svg}
             alt="svg"
             className={`"absolute z-6 h-40 top-[${position[4]}%] left-[${position[5]}%]"`}
           />

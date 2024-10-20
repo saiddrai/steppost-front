@@ -26,6 +26,7 @@ const Video = ({ language }) => {
           ? baseUrl + response.data.data[1].attributes.video.data.attributes.url
           : baseUrl + response.data.data[0].attributes.video.data.attributes.url;
       setVideoSrc(link);
+      console.log(link);
     });
   }, []);
 

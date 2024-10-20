@@ -16,7 +16,6 @@ function Cta({ language }) {
     axios
       .get(`${api}`)
       .then((response) => {
-        console.log(response);
         if (language === "fr") {
           setContent(response.data.data.attributes.localizations.data[0].attributes);
         } else {

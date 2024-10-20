@@ -51,10 +51,10 @@ function Services({ language }) {
         {description && description.description}
       </p>
       <div className="relative flex  overflow-x-scroll py-10 ">
-        <div className="flex flex-row justify-center w-fit items-center  lg:space-y-0">
+        <div className="flex flex-row justify-center w-fit items-start  lg:space-y-0">
           {services.map((service, index) => (
             <div className="relative hover:text-purple w-screen md:w-1/4" key={index}>
-              <div className="relative my-6">
+              <div className="relative  my-6">
                 <img className="" src={service.image} alt={service.title} />
                 <div className="absolute inset-0 bg-purple opacity-0 hover:opacity-80 mix-blend-multiply transition-opacity duration-500"></div>
               </div>
